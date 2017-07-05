@@ -77,7 +77,7 @@ var ReactGA = {
       a.async = 1;
       a.src = g;
       m.parentNode.insertBefore(a, m);
-    })(window, document, 'script', 'https://cdn.jsdelivr.net/ga-lite/latest/ga-lite.min.js', 'ga');
+    })(window, document, 'script', '/js/analytics.js', 'ga');
     // jscs:enable
 
     if (Array.isArray(configs)) {
