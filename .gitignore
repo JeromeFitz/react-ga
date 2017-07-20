@@ -3,3 +3,5 @@
 .npm-*
 /dist/index.html
 *.log
+package-lock.json
+yarn.lock

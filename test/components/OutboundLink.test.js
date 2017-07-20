@@ -2,7 +2,7 @@ var should = require('should');
 var sinon = require('sinon');
 var React = require('react');
 var findDOMNode = require('react-dom').findDOMNode;
-var TestUtils = require('react-addons-test-utils');
+var TestUtils = require('react-dom/test-utils');
 var jsdom = require('mocha-jsdom');
 
 var OutboundLink = require('../../src/components/OutboundLink');

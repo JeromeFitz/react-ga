@@ -5,7 +5,7 @@ var toTitleCase = require('../../src/utils/toTitleCase');
 describe('toTitleCase()', function () {
   // Tests taken from https://github.com/gouch/to-title-case/blob/master/test/tests.json
   it('should convert correctly to title case', function () {
-     // jscs:disable
+    // jscs:disable
     toTitleCase('follow step-by-step instructions')
       .should.eql('Follow Step-by-Step Instructions');
     toTitleCase('this sub-phrase is nice')

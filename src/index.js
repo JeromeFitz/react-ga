@@ -68,7 +68,7 @@ var ReactGA = {
   initialize: function (configs, options) {
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/
     // jscs:disable
-    let javascriptFile = 'https://www.google-analytics.com/analytics.js';
+    var javascriptFile = 'https://www.google-analytics.com/analytics.js';
     if (options && options.customJavascript) {
       javascriptFile = options.customJavascript;
     }

@@ -1,7 +1,7 @@
 var should = require('should');
 var sinon = require('sinon');
 var React = require('react');
-var TestUtils = require('react-addons-test-utils');
+var TestUtils = require('react-dom/test-utils');
 
 var ReactGA = require('../src/index');
 
@@ -84,6 +84,15 @@ describe('react-ga', function () {
       getGaCalls().should.eql([]);
     });
 
+    it('should use custom javascript file, if set', function () {
+      ReactGA.initialize('foo', { customJavascript: '/js/analytics.js' });
+      ReactGA.ga('send', 'pageview', '/mypage');
+      getGaCalls().should.eql([
+        ['create', 'foo', 'auto'],
+        ['send', 'pageview', '/mypage']
+      ]);
+    });
+
     it('should abort, log warning if tracking ID is not given', function () {
       ReactGA.initialize();
       console.warn.args.should.eql([
@@ -121,14 +130,6 @@ describe('react-ga', function () {
       ]);
     });
 
-    it('should use custom javascript file, if set', function () {
-      ReactGA.initialize('foo', { customJavascript: '/js/analytics.js' });
-      ReactGA.ga('send', 'pageview', '/mypage');
-      getGaCalls().should.eql([
-        ['create', 'foo', 'auto'],
-        ['send', 'pageview', '/mypage']
-      ]);
-    });
   });
 
   /**
