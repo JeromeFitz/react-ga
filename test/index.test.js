@@ -120,6 +120,15 @@ describe('react-ga', function () {
         ['[react-ga]', 'with arguments: ["send","pageview","/mypage"]']
       ]);
     });
+
+    it('should use custom javascript file, if set', function () {
+      ReactGA.initialize('foo', { customJavascript: '/js/analytics.js' });
+      ReactGA.ga('send', 'pageview', '/mypage');
+      getGaCalls().should.eql([
+        ['create', 'foo', 'auto'],
+        ['send', 'pageview', '/mypage']
+      ]);
+    });
   });
 
   /**
