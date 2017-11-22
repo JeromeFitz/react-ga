@@ -1,6 +1,6 @@
 {
   "name": "react-ga",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "description": "React Google Analytics Module.",
   "main": "dist/react-ga.js",
   "scripts": {
@@ -74,7 +74,6 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-react": "^7.1.0",
-    "fs-extra": "^4.0.2",
     "html-webpack-plugin": "^2.30.1",
     "jsdom": "~9.12.0",
     "jsdom-global": "~2.1.1",
@@ -93,6 +92,7 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "fs-extra": "^4.0.2",
     "object-assign": "^4.1.1"
   }
 }

@@ -231,20 +231,25 @@ function _initialize(gaTrackingID, options) {
   }
 }
 
-function initialize(configs, options) {
+function initialize(configsOrTrackingId, options) {
+  var javascriptFile = 'https://www.google-analytics.com/analytics.js';
   if (typeof window === 'undefined') {
     return false;
   }
 
-  (0, _loadGA2.default)();
+  if (options && options.customJavascript) {
+    javascriptFile = options.customJavascript;
+  }
+
+  (0, _loadGA2.default)(javascriptFile);
   internalGa = function internalGa() {
     var _window;
 
     return (_window = window).ga.apply(_window, arguments);
   };
 
-  if (Array.isArray(configs)) {
-    configs.forEach(function (config) {
+  if (Array.isArray(configsOrTrackingId)) {
+    configsOrTrackingId.forEach(function (config) {
       if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) !== 'object') {
         (0, _warn2.default)('All configs must be an object');
         return;
@@ -252,7 +257,7 @@ function initialize(configs, options) {
       _initialize(config.trackingId, config);
     });
   } else {
-    _initialize(configs, options);
+    _initialize(configsOrTrackingId, options);
   }
   return true;
 }
@@ -850,7 +855,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports.default = function () {
+exports.default = function (javascriptFile) {
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/
   /* eslint-disable */
   (function (i, s, o, g, r, a, m) {
@@ -862,7 +867,7 @@ exports.default = function () {
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m);
-  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  })(window, document, 'script', javascriptFile, 'ga');
   /* eslint-enable */
 };
 

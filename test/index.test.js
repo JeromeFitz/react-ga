@@ -84,6 +84,15 @@ describe('react-ga', function () {
       ]);
       gaSpy.args.should.eql([]);
     });
+
+    it('should use custom javascript file, if set', function () {
+      ReactGA.initialize('foo', { customJavascript: '/js/analytics.js' });
+      ReactGA.ga('send', 'pageview', '/mypage');
+      warnSpy.args.should.eql([
+        ['create', 'foo', 'auto'],
+        ['send', 'pageview', '/mypage']
+      ]);
+    });
   });
 
   /**

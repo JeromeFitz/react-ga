@@ -81,6 +81,7 @@ GA must be initialized using this function before any of the other tracking func
 
 ```js
 ReactGA.initialize('UA-000000-01', {
+  customJavascript: '/js/analytics.js',
   debug: true,
   titleCase: false,
   gaOptions: {
@@ -92,6 +93,7 @@ ReactGA.initialize('UA-000000-01', {
 |Value|Notes|
 |------|-----|
 |gaTrackingID| `String`. Required. GA Tracking ID like `UA-000000-01`.|
+|options.debug| `String`. Optional. If set will override the Google Hosted JavaScript.|
 |options.debug| `Boolean`. Optional. If set to `true`, will output additional feedback to the console.|
 |options.titleCase| `Boolean`. Optional. Defaults to `true`. If set to `false`, strings will not be converted to title case before sending to GA.|
 |options.gaOptions| `Object`. Optional. [GA configurable create only fields.](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference)|

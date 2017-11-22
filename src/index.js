@@ -71,11 +71,16 @@ function _initialize(gaTrackingID, options) {
 
 
 export function initialize(configsOrTrackingId, options) {
+  let javascriptFile = 'https://www.google-analytics.com/analytics.js';
   if (typeof window === 'undefined') {
     return false;
   }
 
-  loadGA();
+  if (options && options.customJavascript) {
+    javascriptFile = options.customJavascript;
+  }
+
+  loadGA(javascriptFile);
   internalGa = (...args) => window.ga(...args);
 
   if (Array.isArray(configsOrTrackingId)) {
